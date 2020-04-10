@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_site/styles.dart';
+import 'package:personal_site/widgets/about_me.dart';
 import 'package:personal_site/widgets/genernal_info.dart';
 import 'package:personal_site/widgets/nav_bar.dart';
 
@@ -21,7 +22,8 @@ class HomePage extends StatelessWidget {
                 padding: EdgeInsets.only(top: 85.0),
                 child: SingleChildScrollView(
                     child: Column(
-                  children: <Widget>[GeneralInfo()],
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[GeneralInfo(), AboutMe()],
                 )),
               ),
             ),
