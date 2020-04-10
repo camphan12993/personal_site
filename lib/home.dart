@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:personal_site/pages/about_me.dart';
 import 'package:personal_site/pages/genernal_info.dart';
+import 'package:personal_site/pages/work.dart';
 import 'package:personal_site/styles.dart';
 import 'package:personal_site/widgets/nav_bar.dart';
 
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             child: ListView(
               controller: _scrollController,
               scrollDirection: Axis.horizontal,
-              children: <Widget>[GeneralInfo(), AboutMe()],
+              children: <Widget>[GeneralInfo(), AboutMe(), WorkPage()],
             ),
           ),
         ],
