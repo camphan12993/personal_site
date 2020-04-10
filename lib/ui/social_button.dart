@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_site/styles.dart';
 
 class SocialButton extends StatelessWidget {
   final IconData icon;
@@ -10,29 +11,14 @@ class SocialButton extends StatelessWidget {
       width: 30.0,
       height: 30.0,
       margin: EdgeInsets.symmetric(horizontal: 8.0),
-      decoration: BoxDecoration(
-        color: Colors.grey[300],
-        boxShadow: [
-          BoxShadow(
-              color: Colors.white,
-              offset: Offset(-4.0, -4.0),
-              spreadRadius: 2,
-              blurRadius: 8.0),
-          BoxShadow(
-              color: Colors.grey[400],
-              offset: Offset(4.0, 4.0),
-              spreadRadius: 2,
-              blurRadius: 8.0)
-        ],
-        shape: BoxShape.circle,
-      ),
+      decoration: getBoxDecoration(borderRadius: 10),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Icon(
               icon,
-              color: Colors.grey[600],
+              color: Theme.of(context).primaryColor,
               size: 20,
             ),
           ],

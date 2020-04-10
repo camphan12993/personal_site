@@ -1,41 +1,36 @@
 import 'package:flutter/material.dart';
 
-Color bg = Colors.grey[300];
+Color bg = Color(0xFFe6ebf2);
 
-Color lightShadow = Colors.white;
+Color lightShadow = Colors.white.withOpacity(.7);
 
-Color darkShadow = Colors.grey[600];
+Color darkShadow = Colors.black.withOpacity(.15);
 
-BoxDecoration softDecoration = BoxDecoration(
-    color: Colors.grey[300],
+BoxDecoration avataStyleInner = BoxDecoration(
+    color: bg,
     boxShadow: [
-      BoxShadow(
-          color: Colors.white,
-          offset: Offset(-4.0, -4.0),
-          spreadRadius: 2,
-          blurRadius: 8.0),
-      BoxShadow(
-          color: Colors.grey[400],
-          offset: Offset(4.0, 4.0),
-          spreadRadius: 2,
-          blurRadius: 8.0)
-    ],
-    borderRadius: BorderRadius.circular(8.0));
-
-BoxDecoration softDecorationCircle = BoxDecoration(
-    color: Colors.grey[300],
-    boxShadow: [
-      BoxShadow(
-          color: Colors.white,
-          offset: Offset(-4.0, -4.0),
-          spreadRadius: 2,
-          blurRadius: 8.0),
-      BoxShadow(
-          color: Colors.grey[400],
-          offset: Offset(4.0, 4.0),
-          spreadRadius: 2,
-          blurRadius: 8.0)
+      BoxShadow(color: darkShadow, offset: Offset(-3.0, -3.0), blurRadius: 3.0),
+      BoxShadow(color: lightShadow, offset: Offset(3.0, 3.0), blurRadius: 3.0)
     ],
     shape: BoxShape.circle,
     image: DecorationImage(
         image: AssetImage("assets/images/logo.png"), fit: BoxFit.cover));
+
+BoxDecoration getBoxDecoration(
+        {double borderRadius = 4.0,
+        bool inner = false,
+        double offset = 3.0,
+        double blurRadius = 3.0}) =>
+    BoxDecoration(
+        color: bg,
+        boxShadow: [
+          BoxShadow(
+              color: inner ? darkShadow : lightShadow,
+              offset: Offset(-offset, -offset),
+              blurRadius: blurRadius),
+          BoxShadow(
+              color: inner ? lightShadow : darkShadow,
+              offset: Offset(offset, offset),
+              blurRadius: blurRadius)
+        ],
+        borderRadius: BorderRadius.circular(borderRadius));

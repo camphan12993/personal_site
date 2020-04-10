@@ -4,25 +4,33 @@ import 'package:personal_site/styles.dart';
 class NavButton extends StatelessWidget {
   final IconData icon;
   final String title;
+  final bool isActive;
 
-  const NavButton(this.icon, this.title);
+  const NavButton({this.icon, this.title, this.isActive = false});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 65.0,
-      height: 65.0,
-      margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-      decoration: softDecoration,
+      margin: EdgeInsets.symmetric(horizontal: 16.0),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(
-              icon,
-              color: Colors.grey[600],
-              size: 26,
+            Container(
+              width: 40,
+              height: 40.0,
+              decoration: isActive
+                  ? getBoxDecoration(borderRadius: 12, inner: true)
+                  : getBoxDecoration(borderRadius: 12),
+              child: Center(
+                child: Icon(
+                  icon,
+                  color: Theme.of(context).primaryColor,
+                  size: 22,
+                ),
+              ),
             ),
-            SizedBox(height: 6.0),
+            SizedBox(height: 10.0),
             Text(
               title,
               style: TextStyle(

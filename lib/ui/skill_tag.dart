@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../styles.dart';
+
 class SkillTag extends StatelessWidget {
   final String name;
 
@@ -13,11 +15,7 @@ class SkillTag extends StatelessWidget {
       ),
       margin: EdgeInsets.only(right: 10.0),
       padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-            offset: Offset(-2, -2), blurRadius: 2.0, color: Colors.grey[500]),
-        BoxShadow(offset: Offset(2, 2), blurRadius: 2.0, color: Colors.white),
-      ], color: Colors.grey[300], borderRadius: BorderRadius.circular(20.0)),
+      decoration: getBoxDecoration(borderRadius: 20.0, inner: true),
     );
   }
 }

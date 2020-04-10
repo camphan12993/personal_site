@@ -1,29 +1,42 @@
 import 'package:flutter/material.dart';
-
-import '../styles.dart';
-import 'nav_button.dart';
+import 'package:personal_site/ui/nav_button.dart';
 
 class NavBar extends StatelessWidget {
+  final int activeIndex;
+  final Function onChangeTab;
+
+  NavBar(this.activeIndex, this.onChangeTab);
+
+  final navBtns = [
+    {
+      "icon": Icons.home,
+      "title": 'Home',
+    },
+    {"icon": Icons.person, "title": 'About me'},
+    {"icon": Icons.work, "title": 'Work'},
+    {"icon": Icons.email, "title": 'Contact'}
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 16.0),
       child: Row(
-        children: <Widget>[
-          NavButton(Icons.home, 'Home'),
-          NavButton(Icons.person, 'About me'),
-          NavButton(Icons.work, 'Work'),
-          NavButton(Icons.email, 'Contact')
-        ],
+        children: navBtns.asMap().entries.map((e) {
+          var value = e.value;
+          return GestureDetector(
+            onTap: () {
+              onChangeTab(e.key);
+            },
+            child: NavButton(
+              icon: value['icon'],
+              title: value['title'],
+              isActive: e.key == activeIndex,
+            ),
+          );
+        }).toList(),
         mainAxisAlignment: MainAxisAlignment.center,
-        // crossAxisAlignment: CrossAxisAlignment.center,
       ),
-      decoration: BoxDecoration(boxShadow: [
-        BoxShadow(
-            color: Colors.black26,
-            offset: Offset(0, 0.0),
-            blurRadius: 16.0,
-            spreadRadius: 0)
-      ], color: bg),
     );
   }
 }
