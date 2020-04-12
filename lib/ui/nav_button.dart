@@ -20,8 +20,10 @@ class NavButton extends StatelessWidget {
               width: 40,
               height: 40.0,
               decoration: isActive
-                  ? getBoxDecoration(borderRadius: 12, inner: true)
-                  : getBoxDecoration(borderRadius: 12),
+                  ? getBoxDecoration(
+                      borderRadius: 12, inner: true, spread: -1, blurRadius: 1)
+                  : getBoxDecoration(
+                      borderRadius: 12, offset: 3, spread: 0, blurRadius: 4),
               child: Center(
                 child: Icon(
                   icon,

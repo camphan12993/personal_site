@@ -20,17 +20,20 @@ BoxDecoration getBoxDecoration(
         {double borderRadius = 4.0,
         bool inner = false,
         double offset = 3.0,
-        double blurRadius = 3.0}) =>
+        double blurRadius = 3.0,
+        double spread = 0}) =>
     BoxDecoration(
         color: bg,
         boxShadow: [
           BoxShadow(
               color: inner ? darkShadow : lightShadow,
               offset: Offset(-offset, -offset),
-              blurRadius: blurRadius),
+              blurRadius: blurRadius,
+              spreadRadius: spread),
           BoxShadow(
               color: inner ? lightShadow : darkShadow,
               offset: Offset(offset, offset),
-              blurRadius: blurRadius)
+              blurRadius: blurRadius,
+              spreadRadius: spread)
         ],
         borderRadius: BorderRadius.circular(borderRadius));

@@ -62,8 +62,9 @@ class WorkPage extends StatelessWidget {
                     decoration: getBoxDecoration(
                         inner: true,
                         borderRadius: 3.0,
-                        blurRadius: 2.0,
-                        offset: 2),
+                        blurRadius: 1.0,
+                        spread: 0,
+                        offset: 1),
                   ),
                 ),
                 Container(

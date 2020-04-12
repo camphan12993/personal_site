@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:personal_site/ui/circular_progress.dart';
 import 'package:personal_site/ui/progress_bar.dart';
-import 'package:personal_site/ui/skill_tag.dart';
 
 class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
+    return SingleChildScrollView(
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(20.0),
@@ -95,6 +94,46 @@ class AboutMe extends StatelessWidget {
                     child: CustomProgressBar(
                   percent: 80,
                 ))
+              ],
+            ),
+            SizedBox(
+              height: 16.0,
+            ),
+            Text(
+              'Languages',
+              textAlign: TextAlign.left,
+              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(
+              height: 16.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                CircularProgress(
+                  percent: 35.0,
+                  title: Text('Flutter'),
+                ),
+                CircularProgress(
+                  percent: 80.0,
+                  title: Text('Angular'),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 16.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                CircularProgress(
+                  percent: 20.0,
+                  title: Text('C#'),
+                ),
+                CircularProgress(
+                  percent: 60.0,
+                  title: Text('Nodejs'),
+                )
               ],
             )
           ],
