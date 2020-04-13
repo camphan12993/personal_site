@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_site/styles.dart';
+import 'package:personal_site/ui/responsive_container.dart';
 
 class WorkPage extends StatelessWidget {
   Widget getTimelineItem(context, String text) {
@@ -37,50 +38,52 @@ class WorkPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
+    return ResponsiveContainer(
       child: Container(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              'Working Experiences',
-              textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 16),
-            Stack(
-              fit: StackFit.loose,
-              children: <Widget>[
-                Positioned(
-                  left: 8.0,
-                  bottom: 0,
-                  top: 0,
-                  child: Container(
-                    width: 4.0,
-                    decoration: getBoxDecoration(
-                        inner: true,
-                        borderRadius: 3.0,
-                        blurRadius: 1.0,
-                        spread: 0,
-                        offset: 1),
+        child: Container(
+          height: 46.0,
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                'Working Experiences',
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 16),
+              Stack(
+                fit: StackFit.loose,
+                children: <Widget>[
+                  Positioned(
+                    left: 8.0,
+                    bottom: 0,
+                    top: 0,
+                    child: Container(
+                      width: 4.0,
+                      decoration: getBoxDecoration(
+                          inner: true,
+                          borderRadius: 3.0,
+                          blurRadius: 1.0,
+                          spread: 0,
+                          offset: 1),
+                    ),
                   ),
-                ),
-                Container(
-                  child: Column(
-                    children: <Widget>[
-                      getTimelineItem(context, '2001-2005'),
-                      SizedBox(height: 20.0),
-                      getTimelineItem(context, '2005-2010'),
-                      SizedBox(height: 20.0),
-                      getTimelineItem(context, '2010-2016')
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ],
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        getTimelineItem(context, '2001-2005'),
+                        SizedBox(height: 20.0),
+                        getTimelineItem(context, '2005-2010'),
+                        SizedBox(height: 20.0),
+                        getTimelineItem(context, '2010-2016')
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

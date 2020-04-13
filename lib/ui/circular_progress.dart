@@ -10,28 +10,38 @@ class CircularProgress extends StatelessWidget {
   const CircularProgress({Key key, this.title, this.percent}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200.0,
-      height: 200.0,
-      decoration: getBoxDecoration(borderRadius: 100.0),
-      child: Stack(
-        children: <Widget>[
-          Container(
-            child: CustomPaint(
-              child: Center(),
-              painter: ProgressPainter(Theme.of(context).primaryColor, percent),
+    return LayoutBuilder(
+      builder: (context, constraint) {
+        var width = min(constraint.minWidth, constraint.maxHeight);
+        return Align(
+          alignment: Alignment.center,
+          child: Container(
+            width: width - 20.0,
+            height: width - 20.0,
+            margin: EdgeInsets.all(10.0),
+            decoration: getBoxDecoration(borderRadius: 100.0),
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  child: CustomPaint(
+                    child: Center(),
+                    painter: ProgressPainter(
+                        Theme.of(context).primaryColor, percent),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.all(40.0),
+                    decoration: getBoxDecoration(
+                        borderRadius: 100.0, spread: -2, blurRadius: 4),
+                    child: Center(child: title),
+                  ),
+                )
+              ],
             ),
           ),
-          Center(
-            child: Container(
-              margin: EdgeInsets.all(48.0),
-              decoration: getBoxDecoration(
-                  borderRadius: 100.0, spread: -2, blurRadius: 4),
-              child: Center(child: title),
-            ),
-          )
-        ],
-      ),
+        );
+      },
     );
   }
 }
@@ -44,11 +54,11 @@ class ProgressPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Offset center = Offset(size.width / 2, size.height / 2);
-    double radius = min(size.width / 2, size.height / 2) - 26;
+    double radius = min(size.width / 2, size.height / 2) - 20;
     double end = (2 * pi / 100) * percent;
     var paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 36
+      ..strokeWidth = 20
       ..color = color;
     canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
         end, false, paint);

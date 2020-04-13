@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:personal_site/styles.dart';
+import 'package:personal_site/ui/responsive_container.dart';
 import 'package:personal_site/ui/social_button.dart';
 
 class GeneralInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
+    return ResponsiveContainer(
       child: Container(
         padding: EdgeInsets.all(20.0),
         child: Column(

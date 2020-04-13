@@ -5,7 +5,7 @@ class NavBar extends StatelessWidget {
   final int activeIndex;
   final Function onChangeTab;
 
-  NavBar(this.activeIndex, this.onChangeTab);
+  NavBar({this.activeIndex, this.onChangeTab});
 
   final navBtns = [
     {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_site/pages/about_me.dart';
+import 'package:personal_site/pages/contact.dart';
 import 'package:personal_site/pages/genernal_info.dart';
 import 'package:personal_site/pages/work.dart';
 import 'package:personal_site/styles.dart';
@@ -32,8 +33,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   updateTab(int index) {
-    _scrollController.animateTo(index * width,
-        duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+    _scrollController.jumpTo(index * width);
   }
 
   @override
@@ -46,12 +46,17 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: <Widget>[
           SizedBox(height: 20.0),
-          NavBar(activeIndex, updateTab),
+          NavBar(activeIndex: activeIndex, onChangeTab: updateTab),
           Expanded(
             child: ListView(
               controller: _scrollController,
               scrollDirection: Axis.horizontal,
-              children: <Widget>[GeneralInfo(), AboutMe(), WorkPage()],
+              children: <Widget>[
+                GeneralInfo(),
+                AboutMe(),
+                WorkPage(),
+                Contact()
+              ],
             ),
           ),
         ],
