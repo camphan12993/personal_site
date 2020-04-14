@@ -3,12 +3,14 @@ import 'package:personal_site/ui/circular_progress.dart';
 import 'package:personal_site/ui/progress_bar.dart';
 import 'package:personal_site/ui/responsive_container.dart';
 
+import '../styles.dart';
+
 class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveContainer(
-      child: SingleChildScrollView(
-        child: Container(
+      child: Container(
+        child: SingleChildScrollView(
           padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -16,7 +18,7 @@ class AboutMe extends StatelessWidget {
               Text(
                 'About Me',
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                style: titleStyle,
               ),
               SizedBox(
                 height: 16.0,
@@ -26,12 +28,12 @@ class AboutMe extends StatelessWidget {
                 style: TextStyle(fontStyle: FontStyle.italic, fontSize: 14.0),
               ),
               SizedBox(
-                height: 30.0,
+                height: 16.0,
               ),
               Text(
                 'Skills',
                 textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                style: titleStyle,
               ),
               SizedBox(
                 height: 16.0,
@@ -102,8 +104,7 @@ class AboutMe extends StatelessWidget {
               ),
               Text(
                 'Languages',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                style: titleStyle,
               ),
               SizedBox(
                 height: 16.0,
@@ -116,6 +117,9 @@ class AboutMe extends StatelessWidget {
                       title: Text('Flutter'),
                     ),
                   ),
+                  SizedBox(
+                    height: 12.0,
+                  ),
                   Expanded(
                     child: CircularProgress(
                       percent: 80.0,
@@ -125,7 +129,7 @@ class AboutMe extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 16.0,
+                height: 40.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -135,6 +139,9 @@ class AboutMe extends StatelessWidget {
                       percent: 20.0,
                       title: Text('C#'),
                     ),
+                  ),
+                  SizedBox(
+                    height: 12.0,
                   ),
                   Expanded(
                     child: CircularProgress(

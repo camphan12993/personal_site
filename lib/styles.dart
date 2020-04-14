@@ -19,11 +19,16 @@ BoxDecoration avataStyleInner = BoxDecoration(
 BoxDecoration getBoxDecoration(
         {double borderRadius = 4.0,
         bool inner = false,
+        bool circle = false,
         double offset = 3.0,
         double blurRadius = 3.0,
-        double spread = 0}) =>
+        double spread = 0,
+        String imageUrl = ''}) =>
     BoxDecoration(
         color: bg,
+        image: imageUrl != ''
+            ? DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.cover)
+            : null,
         boxShadow: [
           BoxShadow(
               color: inner ? darkShadow : lightShadow,
@@ -36,4 +41,9 @@ BoxDecoration getBoxDecoration(
               blurRadius: blurRadius,
               spreadRadius: spread)
         ],
-        borderRadius: BorderRadius.circular(borderRadius));
+        borderRadius: circle ? null : BorderRadius.circular(borderRadius),
+        shape: circle ? BoxShape.circle : BoxShape.rectangle);
+
+// Test style
+TextStyle titleStyle =
+    TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, letterSpacing: 1.6);

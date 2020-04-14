@@ -16,10 +16,9 @@ class CircularProgress extends StatelessWidget {
         return Align(
           alignment: Alignment.center,
           child: Container(
-            width: width - 20.0,
-            height: width - 20.0,
-            margin: EdgeInsets.all(10.0),
-            decoration: getBoxDecoration(borderRadius: 100.0),
+            width: width - 60.0,
+            height: width - 60.0,
+            decoration: getBoxDecoration(circle: true),
             child: Stack(
               children: <Widget>[
                 Container(
@@ -33,7 +32,7 @@ class CircularProgress extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(40.0),
                     decoration: getBoxDecoration(
-                        borderRadius: 100.0, spread: -2, blurRadius: 4),
+                        circle: true, spread: -2, blurRadius: 4),
                     child: Center(child: title),
                   ),
                 )

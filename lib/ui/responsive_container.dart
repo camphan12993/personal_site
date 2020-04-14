@@ -11,7 +11,7 @@ class ResponsiveContainer extends StatelessWidget {
         return constraint.maxWidth < 600.0
             ? child
             : Align(
-                alignment: Alignment.center,
+                alignment: Alignment.topCenter,
                 child: Container(width: 600, child: child));
       }),
     );

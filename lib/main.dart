@@ -10,14 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'My CV',
       theme: ThemeData(
         primaryColor: Color(0xFFff6363),
-        fontFamily: 'Nunito',
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        // visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: 'SourceSansPro',
       ),
       home: HomePage(),
     );
